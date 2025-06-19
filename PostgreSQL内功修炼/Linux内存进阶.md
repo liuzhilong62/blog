@@ -1671,27 +1671,49 @@ pg sharebuffer使用的/dev/zero设备映射来实现的匿名共享页，所以
 
 
 [《深入理解Linux内核》]: 《深入理解Linux内核》： 内存寻址、内存管理、地址空间管理、回收页框
+
 [《深入理解Linux进程和内存》]: 《深入理解Linux进程和内存》 CPU硬件原理、进程、线程的对比
+
 [《奔跑吧 Linux内核 入门篇（第2版）》]: 《奔跑吧Linux内核入门篇（第2版）》 系统调用、内存管理 
+
 [ UNIVERSITY of WASHINGTON,PPT, POSIX I/O, System Calls]:    https://courses.cs.washington.edu/courses/cse333/20wi/lectures/07/CSE333-L07-posix_20wi.pdf 
+
 [ UNIVERSITY OF NORTH CAROLINA ,Page Frame Reclaiming]: https://www.cs.unc.edu/~porter/courses/comp630/s24/slides/pfra.pdf
+
 [ Internminne og Cache,TLB L1]:  https://www.cs.oslomet.no/~haugerud/os/Forelesning/os7.pdf
+
 [ kernel.org, Page Table Managemen]:  https://www.kernel.org/doc/gorman/html/understand/index.html 
+
 [ kernel.org,mm pagetable]:  https://www.kernel.org/doc/html/latest/mm/page_tables.html
+
 [ kernel.org,cgroup v1]: https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v1/memory.html
+
 [ Linux中进程内存及cgroup内存统计差异]:  https://wiki.goframe.org/pages/viewpage.action?pageId=157646868 
+
 [inconsistent swap behavior]: https://access.redhat.com/solutions/6785021
+
 [linux kernel doc vm]:  https://www.kernel.org/doc/html/latest/admin-guide/sysctl/vm.html#swappiness
+
 [Configuring an operating system to optimize memory access]: [redhat,Configuringanoperatingsystemtooptimizememoryaccess](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/configuring-an-operating-system-to-optimize-memory-access_monitoring-and-managing-system-status-and-performance#overview-of-a-systems-memory_configuring-an-operating-system-to-optimize-memory-access)
+
 [overcommit accounting]:  https://www.kernel.org/doc/Documentation/vm/overcommit-accounting
+
 [CarlyleLiu‘s Blog Linux 内存管理（十二）内存调优]: https://carlyleliu.github.io/LinuxKernel/LinuxMemoryOptimization/
+
 [OOM-killer score]: https://www.man7.org/linux/man-pages/man5/proc_pid_oom_score.5.html
+
 [Linux内核内存回收逻辑和算法(LRU)]:  https://www.cnblogs.com/muahao/p/10109712.html
+
 [kenel doc cgroup v2]: https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html
+
 [cg minlowhigh]:  https://support.huaweicloud.com/usermanual-hce/hce_02_0072.html
+
 [facebook cgroupv2: Linux’s new unified control group system]:  https://chrisdown.name/talks/cgroupv2/cgroupv2-fosdem.pdf
+
 [What’s new in control groups(cgroups) v2]: https://www.man7.org/conf/lca2019/cgroups_v2-LCA2019-Kerrisk.pdf
+
 [ Linux可执行文件与进程的虚拟地址空间]:  https://www.sohu.com/a/392831824_467784
+
 
 
 
