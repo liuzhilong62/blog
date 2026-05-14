@@ -1,0 +1,22 @@
+# 导航栏链接 — 显式定义顺序
+# 首页第一，关于最后
+- title: 首页
+  url: /
+- title: AIOps
+  url: /categories/AIOps/
+- title: PostgreSQL内功修炼
+  url: /categories/PostgreSQL内功修炼/
+- title: PostgreSQL案例
+  url: /categories/PostgreSQL案例/
+- title: PostgreSQL源码解析
+  url: /categories/PostgreSQL源码解析/
+- title: PostgreSQL面试题
+  url: /categories/PostgreSQL面试题/
+- title: 论文解读
+  url: /categories/论文解读/
+- title: 读书笔记
+  url: /categories/读书笔记/
+- title: 杂项
+  url: /categories/杂项/
+- title: 关于
+  url: /about/
