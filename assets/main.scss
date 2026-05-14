@@ -37,6 +37,9 @@ body {
   border-bottom: none;
   min-height: 56px;
   padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .site-title, .site-title:visited {
@@ -325,15 +328,13 @@ body {
 
 .toc-item a {
   display: block;
-  padding: 4px 16px;
+  padding: 4px 16px 4px 16px;
   color: var(--text-muted);
   text-decoration: none;
   border-left: 2px solid transparent;
   transition: all .15s;
-  line-height: 1.5;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.45;
+  word-break: break-word;
 }
 
 .toc-item a:hover {

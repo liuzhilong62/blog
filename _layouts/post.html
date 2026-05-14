@@ -70,6 +70,7 @@ layout: default
     a.href = '#' + h.id;
     a.textContent = h.textContent;
     a.setAttribute('data-heading', h.id);
+    a.setAttribute('title', h.textContent);
     li.appendChild(a);
 
     // Handle nesting: pop stack when going back up levels
