@@ -10,42 +10,42 @@ list_title: 最新文章
 ### 分类目录
 
 <div class="category-grid">
-  <a class="category-card" href="{{ '/categories/PostgreSQL内功修炼' | relative_url }}">
-    <span class="cat-icon">⚙️</span>
-    <div class="cat-name">PostgreSQL内功修炼</div>
-    <div class="cat-count">15 篇文章</div>
-  </a>
-  <a class="category-card" href="{{ '/categories/PostgreSQL案例' | relative_url }}">
+  <a class="category-card cat-large" href="{{ '/categories/PostgreSQL案例' | relative_url }}" data-count="22">
     <span class="cat-icon">🔍</span>
     <div class="cat-name">PostgreSQL案例</div>
     <div class="cat-count">22 篇文章</div>
   </a>
-  <a class="category-card" href="{{ '/categories/PostgreSQL源码解析' | relative_url }}">
-    <span class="cat-icon">💻</span>
-    <div class="cat-name">源码解析</div>
-    <div class="cat-count">5 篇文章</div>
+  <a class="category-card cat-large" href="{{ '/categories/PostgreSQL内功修炼' | relative_url }}" data-count="15">
+    <span class="cat-icon">⚙️</span>
+    <div class="cat-name">PostgreSQL内功修炼</div>
+    <div class="cat-count">15 篇文章</div>
   </a>
-  <a class="category-card" href="{{ '/categories/读书笔记' | relative_url }}">
+  <a class="category-card cat-large" href="{{ '/categories/读书笔记' | relative_url }}" data-count="15">
     <span class="cat-icon">📚</span>
     <div class="cat-name">读书笔记</div>
     <div class="cat-count">15 篇文章</div>
   </a>
-  <a class="category-card" href="{{ '/categories/杂项' | relative_url }}">
+  <a class="category-card cat-medium" href="{{ '/categories/杂项' | relative_url }}" data-count="12">
     <span class="cat-icon">📦</span>
     <div class="cat-name">杂项</div>
     <div class="cat-count">12 篇文章</div>
   </a>
-  <a class="category-card" href="{{ '/categories/论文解读' | relative_url }}">
+  <a class="category-card cat-small" href="{{ '/categories/PostgreSQL源码解析' | relative_url }}" data-count="5">
+    <span class="cat-icon">💻</span>
+    <div class="cat-name">源码解析</div>
+    <div class="cat-count">5 篇文章</div>
+  </a>
+  <a class="category-card cat-small" href="{{ '/categories/论文解读' | relative_url }}" data-count="4">
     <span class="cat-icon">📄</span>
     <div class="cat-name">论文解读</div>
     <div class="cat-count">4 篇文章</div>
   </a>
-  <a class="category-card" href="{{ '/categories/PostgreSQL面试题' | relative_url }}">
+  <a class="category-card cat-tiny" href="{{ '/categories/PostgreSQL面试题' | relative_url }}" data-count="1">
     <span class="cat-icon">✏️</span>
     <div class="cat-name">面试题</div>
     <div class="cat-count">1 篇文章</div>
   </a>
-  <a class="category-card" href="{{ '/categories/AIOps' | relative_url }}">
+  <a class="category-card cat-tiny" href="{{ '/categories/AIOps' | relative_url }}" data-count="1">
     <span class="cat-icon">🤖</span>
     <div class="cat-name">AIOps</div>
     <div class="cat-count">1 篇文章</div>

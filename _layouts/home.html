@@ -19,8 +19,19 @@ layout: default
       {%- for post in posts limit:20 -%}
       <li>
         <a class="post-link-wrapper" href="{{ post.url | relative_url }}">
-          <span class="post-date">{{ post.date | date: date_format }}</span>
+          <div class="post-meta-row">
+            {%- if post.categories -%}
+              {%- assign first_cat = post.categories | first -%}
+              <span class="post-cat-tag">{{ first_cat }}</span>
+            {%- endif -%}
+            <span class="post-date">{{ post.date | date: date_format }}</span>
+          </div>
           <span class="post-title">{{ post.title | escape }}</span>
+          {%- if post.description -%}
+            <span class="post-excerpt">{{ post.description | strip_html | truncate: 80 }}</span>
+          {%- elsif post.excerpt -%}
+            <span class="post-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</span>
+          {%- endif -%}
         </a>
       </li>
       {%- endfor -%}

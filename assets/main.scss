@@ -131,7 +131,7 @@ body {
 .category-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--accent);
+  /* 不再改 border-color，改为热力色等级 */
 }
 .category-card .cat-name {
   font-weight: 700;
@@ -815,13 +815,24 @@ body {
   .category-card {
     padding: 12px;
   }
+  /* 移动端不降低透明度，保持可读性 */
+  .category-card.cat-tiny {
+    opacity: 1;
+  }
   .post-link-wrapper {
     padding: 14px 16px;
   }
   .post-link-wrapper .post-date {
-    display: block;
-    margin-bottom: 4px;
+    display: inline;
+    margin-bottom: 0;
     min-width: auto;
+  }
+  .post-cat-tag {
+    font-size: .68rem;
+    padding: 1px 8px;
+  }
+  .post-excerpt {
+    -webkit-line-clamp: 2;
   }
   .post-title {
     font-size: 1.5rem;
@@ -906,22 +917,48 @@ body {
   gap: 8px;
   text-align: center;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  /* 热力左色条 — 覆盖原来的 ::before */
+  border-left: 4px solid transparent;
 }
 
+/* 热力等级配色 */
+.category-card.cat-large {
+  border-left-color: #e67e22;
+  background: linear-gradient(135deg, #fffbf5 0%, #fef9f2 100%);
+}
+.category-card.cat-large:hover {
+  border-left-color: #d35400;
+}
+
+.category-card.cat-medium {
+  border-left-color: #27ae60;
+  background: linear-gradient(135deg, #f5fffb 0%, #f0fdf4 100%);
+}
+.category-card.cat-medium:hover {
+  border-left-color: #1e8449;
+}
+
+.category-card.cat-small {
+  border-left-color: var(--accent);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+.category-card.cat-small:hover {
+  border-left-color: var(--accent-light);
+}
+
+.category-card.cat-tiny {
+  border-left-color: #bdc3c7;
+  background: linear-gradient(135deg, #fafbfc 0%, #f5f6f7 100%);
+  opacity: .8;
+}
+.category-card.cat-tiny:hover {
+  border-left-color: #95a5a6;
+  opacity: 1;
+}
+
+/* 替换原有的 ::before（移除旧左边条动画，改用热力色） */
 .category-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--accent);
-  transform: scaleY(0);
-  transition: transform 0.2s ease;
-}
-
-.category-card:hover::before {
-  transform: scaleY(1);
+  display: none;
 }
 
 .cat-icon {
@@ -944,9 +981,45 @@ body {
 }
 
 .post-link-wrapper {
+  display: block;
   padding: 20px 24px;
   position: relative;
   overflow: hidden;
+}
+
+/* 分类标签 + 日期行 */
+.post-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.post-cat-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(51, 103, 145, .08);
+  border: 1px solid rgba(51, 103, 145, .2);
+  padding: 2px 10px;
+  border-radius: 20px;
+  letter-spacing: .3px;
+}
+
+/* 摘要文字 */
+.post-excerpt {
+  display: block;
+  margin-top: 6px;
+  font-size: .88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .post-link-wrapper::after {
