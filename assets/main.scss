@@ -215,12 +215,13 @@ body {
 
 /* ---------- 文章页 ---------- */
 .post {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .post-header {
-  margin-bottom: 32px;
+  max-width: 800px;
+  margin: 0 auto 32px auto;
 }
 
 .post-title {
@@ -235,8 +236,168 @@ body {
   font-size: .9rem;
 }
 
+/* 文章主体 + 侧边目录 布局 */
+.post-with-toc {
+  display: grid;
+  grid-template-columns: minmax(0, 800px) 240px;
+  gap: 48px;
+  justify-content: center;
+  align-items: start;
+}
+
 .post-content {
   font-size: 1.05rem;
+  min-width: 0;  /* prevent overflow */
+}
+
+/* ---------- 侧边目录 ---------- */
+.post-toc {
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  font-size: .82rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg-card);
+  z-index: 1;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.toc-title {
+  font-weight: 700;
+  color: var(--bg-dark);
+  font-size: .9rem;
+}
+
+.toc-toggle {
+  display: none;  /* hidden on desktop */
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0;
+  transition: all .15s;
+}
+.toc-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.toc-nav {
+  padding: 8px 0;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item a {
+  display: block;
+  padding: 4px 16px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all .15s;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toc-item a:hover {
+  color: var(--accent);
+  background: rgba(51, 103, 145, .06);
+  border-left-color: var(--accent-light);
+}
+
+.toc-item a.active {
+  color: var(--accent);
+  font-weight: 600;
+  border-left-color: var(--accent);
+  background: rgba(51, 103, 145, .08);
+}
+
+/* 嵌套缩进 */
+.toc-h1 > a { padding-left: 16px; font-weight: 600; font-size: .85rem; }
+.toc-h2 > a { padding-left: 28px; }
+.toc-h3 > a { padding-left: 40px; font-size: .78rem; }
+
+/* TOC 折叠状态 */
+.post-toc.collapsed .toc-nav {
+  display: none;
+}
+.post-toc.collapsed {
+  max-height: none;
+  overflow: hidden;
+}
+
+/* ---------- 响应式：窄屏 TOC 变为顶部折叠块 ---------- */
+@media (max-width: 1100px) {
+  .post {
+    max-width: 800px;
+  }
+
+  .post-header {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .post-with-toc {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .post-toc {
+    position: static;
+    max-height: none;
+    overflow: hidden;
+    margin-bottom: 24px;
+    order: -1;
+  }
+
+  .toc-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toc-header {
+    border-radius: var(--radius);
+  }
+
+  .post-toc:not(.collapsed) .toc-header {
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .post-toc.collapsed {
+    border-radius: var(--radius);
+  }
 }
 
 .post-content h2 {

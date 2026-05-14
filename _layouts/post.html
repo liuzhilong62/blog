@@ -1,0 +1,128 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      {%- assign date_format = site.minima.date_format | default: "%Y-%m-%d" -%}
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.modified_date -%}
+        ~
+        <time class="dt-modified" datetime="{{ page.modified_date | date_to_xmlschema }}" itemprop="dateModified">
+          {{ page.modified_date | date: date_format }}
+        </time>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-with-toc">
+    <div class="post-content e-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+
+    <aside class="post-toc" id="post-toc">
+      <div class="toc-header">
+        <span class="toc-title">📑 目录</span>
+        <button class="toc-toggle" id="toc-toggle" aria-label="折叠目录">−</button>
+      </div>
+      <nav class="toc-nav" id="toc-nav"></nav>
+    </aside>
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+<script>
+(function() {
+  var content = document.querySelector('.post-content');
+  if (!content) return;
+
+  var headings = content.querySelectorAll('h1, h2, h3');
+  if (headings.length < 2) {
+    var toc = document.getElementById('post-toc');
+    if (toc) toc.style.display = 'none';
+    return;
+  }
+
+  // Assign IDs to headings that don't have them
+  headings.forEach(function(h, i) {
+    if (!h.id) {
+      h.id = 'heading-' + i + '-' + h.textContent.trim().replace(/[^a-zA-Z0-9\u4e00-\u9fff]+/g, '-').replace(/^-|-$/g, '').substring(0, 60);
+    }
+  });
+
+  // Build nested TOC
+  var tocNav = document.getElementById('toc-nav');
+  var root = document.createElement('ul');
+  root.className = 'toc-list';
+  var stack = [root];
+  var prevLevel = 1;
+
+  headings.forEach(function(h) {
+    var level = parseInt(h.tagName.charAt(1));
+    var li = document.createElement('li');
+    li.className = 'toc-item toc-h' + level;
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    a.setAttribute('data-heading', h.id);
+    li.appendChild(a);
+
+    // Handle nesting: pop stack when going back up levels
+    if (level > prevLevel) {
+      var ul = document.createElement('ul');
+      ul.className = 'toc-sublist';
+      var lastLi = stack[stack.length - 1].lastElementChild;
+      if (lastLi) {
+        lastLi.appendChild(ul);
+        stack.push(ul);
+      }
+    } else if (level < prevLevel) {
+      while (stack.length > level) stack.pop();
+    }
+    stack[stack.length - 1].appendChild(li);
+    prevLevel = level;
+  });
+
+  tocNav.appendChild(root);
+
+  // Scroll spy — highlight current heading
+  var links = tocNav.querySelectorAll('a');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var link = tocNav.querySelector('a[data-heading="' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('active'); });
+        link.classList.add('active');
+        // Scroll TOC to keep active item visible
+        link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+  headings.forEach(function(h) { observer.observe(h); });
+
+  // Collapse/expand toggle
+  var toc = document.getElementById('post-toc');
+  var toggle = document.getElementById('toc-toggle');
+  var tocNavEl = document.getElementById('toc-nav');
+
+  toggle.addEventListener('click', function() {
+    var isCollapsed = toc.classList.toggle('collapsed');
+    toggle.textContent = isCollapsed ? '+' : '−';
+    toggle.setAttribute('aria-label', isCollapsed ? '展开目录' : '折叠目录');
+  });
+
+  // On mobile, start collapsed
+  if (window.innerWidth <= 1100) {
+    toc.classList.add('collapsed');
+    toggle.textContent = '+';
+    toggle.setAttribute('aria-label', '展开目录');
+  }
+})();
+</script>
