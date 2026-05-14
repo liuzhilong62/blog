@@ -584,12 +584,94 @@ body {
 }
 
 /* ---------- 分类页 ---------- */
-.category-list li {
-  margin: 0;
+.category-page {
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-.category-list .post-link-wrapper {
+.category-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.category-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--bg-dark);
   margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.category-count {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.category-post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-post-list li {
+  margin-bottom: 0;
+}
+
+.category-post-list .post-link-wrapper {
+  display: block;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  text-decoration: none !important;
+  transition: all .2s;
+  box-shadow: var(--shadow);
+}
+
+.category-post-list .post-link-wrapper:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-light);
+}
+
+.category-post-list .post-date {
+  display: inline-block;
+  font-size: .78rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  margin-right: 12px;
+  min-width: 85px;
+}
+
+.category-post-list .post-title {
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--bg-dark);
+}
+
+.category-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px 0;
+  font-size: 1.1rem;
+}
+
+.category-back {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.category-back a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: .95rem;
+}
+
+.category-back a:hover {
+  text-decoration: underline;
 }
 
 /* ---------- 关于页 ---------- */

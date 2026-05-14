@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<article class="category-page">
+  <header class="category-header">
+    <h1 class="category-title">{{ page.title | escape }}</h1>
+    {%- assign post_count = site.categories[page.category_name] | size -%}
+    <p class="category-count">{{ post_count }} 篇文章</p>
+  </header>
+
+  {%- if post_count > 0 -%}
+  <ul class="category-post-list">
+    {%- assign date_format = site.minima.date_format | default: "%Y-%m-%d" -%}
+    {%- for post in site.categories[page.category_name] -%}
+    <li>
+      <a class="post-link-wrapper" href="{{ post.url | relative_url }}">
+        <span class="post-date">{{ post.date | date: date_format }}</span>
+        <span class="post-title">{{ post.title | escape }}</span>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- else -%}
+  <p class="category-empty">暂无文章</p>
+  {%- endif -%}
+
+  <p class="category-back">
+    <a href="{{ '/' | relative_url }}">← 返回首页</a>
+  </p>
+</article>
