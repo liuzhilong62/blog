@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ".bash_profile"
+title: "ogg搭建pg-oracle同步——实操步骤"
 date: 2024-08-13
 categories: [杂项]
 ---

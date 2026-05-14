@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "FDW的基本概念"
+title: "PostgreSQL FDW浅析"
 date: 2024-08-12
 categories: [PostgreSQL内功修炼]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "事务隔离级别"
+title: "PostgreSQL事务浅析"
 date: 2024-08-12
 categories: [PostgreSQL内功修炼]
 ---

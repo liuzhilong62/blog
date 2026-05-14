@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "clog segment"
+title: "PostgreSQL CLOG文件及其从库同步解析"
 date: 2024-09-03
 categories: [PostgreSQL内功修炼]
 ---
