@@ -1,0 +1,54 @@
+# Jekyll 配置 - liuzhilong62 的技术博客
+title: 最后的DBA
+description: >-
+  PostgreSQL 数据库技术博客 — 内功修炼、案例分析、源码解析、论文解读
+author: liuzhilong62
+email: liuzhilong62@outlook.com
+lang: zh-CN
+timezone: Asia/Shanghai
+
+# GitHub Pages 配置
+baseurl: "/blogs"
+url: "https://liuzhilong62.github.io"
+
+# 主题
+theme: minima
+
+# Minima 配置
+minima:
+  date_format: "%Y-%m-%d"
+  social_links:
+    github: liuzhilong62
+
+# 每页文章数
+paginate: 10
+paginate_path: "/page:num/"
+
+# 插件（GitHub Pages 支持）
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 排除
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .DS_Store
+
+# 默认 frontmatter
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
