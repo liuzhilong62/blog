@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+<div class="reading-progress" id="reading-progress"></div>
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -36,6 +38,8 @@ layout: default
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
+<button class="back-to-top" id="back-to-top" aria-label="返回顶部">↑</button>
+
 <script>
 (function() {
   var content = document.querySelector('.post-content');
@@ -45,85 +49,111 @@ layout: default
   if (headings.length < 2) {
     var toc = document.getElementById('post-toc');
     if (toc) toc.style.display = 'none';
-    return;
-  }
-
-  // Assign IDs to headings that don't have them
-  headings.forEach(function(h, i) {
-    if (!h.id) {
-      h.id = 'heading-' + i + '-' + h.textContent.trim().replace(/[^a-zA-Z0-9\u4e00-\u9fff]+/g, '-').replace(/^-|-$/g, '').substring(0, 60);
-    }
-  });
-
-  // Build nested TOC
-  var tocNav = document.getElementById('toc-nav');
-  var root = document.createElement('ul');
-  root.className = 'toc-list';
-  var stack = [root];
-  var prevLevel = 1;
-
-  headings.forEach(function(h) {
-    var level = parseInt(h.tagName.charAt(1));
-    var li = document.createElement('li');
-    li.className = 'toc-item toc-h' + level;
-    var a = document.createElement('a');
-    a.href = '#' + h.id;
-    a.textContent = h.textContent;
-    a.setAttribute('data-heading', h.id);
-    a.setAttribute('title', h.textContent);
-    li.appendChild(a);
-
-    // Handle nesting: pop stack when going back up levels
-    if (level > prevLevel) {
-      var ul = document.createElement('ul');
-      ul.className = 'toc-sublist';
-      var lastLi = stack[stack.length - 1].lastElementChild;
-      if (lastLi) {
-        lastLi.appendChild(ul);
-        stack.push(ul);
-      }
-    } else if (level < prevLevel) {
-      while (stack.length > level) stack.pop();
-    }
-    stack[stack.length - 1].appendChild(li);
-    prevLevel = level;
-  });
-
-  tocNav.appendChild(root);
-
-  // Scroll spy — highlight current heading
-  var links = tocNav.querySelectorAll('a');
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      var link = tocNav.querySelector('a[data-heading="' + entry.target.id + '"]');
-      if (!link) return;
-      if (entry.isIntersecting) {
-        links.forEach(function(l) { l.classList.remove('active'); });
-        link.classList.add('active');
-        // Scroll TOC to keep active item visible
-        link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  } else {
+    // Assign IDs to headings that don't have them
+    headings.forEach(function(h, i) {
+      if (!h.id) {
+        h.id = 'heading-' + i + '-' + h.textContent.trim().replace(/[^a-zA-Z0-9\u4e00-\u9fff]+/g, '-').replace(/^-|-$/g, '').substring(0, 60);
       }
     });
-  }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
 
-  headings.forEach(function(h) { observer.observe(h); });
+    // Build nested TOC
+    var tocNav = document.getElementById('toc-nav');
+    var root = document.createElement('ul');
+    root.className = 'toc-list';
+    var stack = [root];
+    var prevLevel = 1;
 
-  // Collapse/expand toggle
-  var toc = document.getElementById('post-toc');
-  var toggle = document.getElementById('toc-toggle');
-  var tocNavEl = document.getElementById('toc-nav');
+    headings.forEach(function(h) {
+      var level = parseInt(h.tagName.charAt(1));
+      var li = document.createElement('li');
+      li.className = 'toc-item toc-h' + level;
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.setAttribute('data-heading', h.id);
+      a.setAttribute('title', h.textContent);
+      li.appendChild(a);
 
-  toggle.addEventListener('click', function() {
-    var isCollapsed = toc.classList.toggle('collapsed');
-    toggle.textContent = isCollapsed ? '+' : '−';
-    toggle.setAttribute('aria-label', isCollapsed ? '展开目录' : '折叠目录');
-  });
+      // Handle nesting: pop stack when going back up levels
+      if (level > prevLevel) {
+        var ul = document.createElement('ul');
+        ul.className = 'toc-sublist';
+        var lastLi = stack[stack.length - 1].lastElementChild;
+        if (lastLi) {
+          lastLi.appendChild(ul);
+          stack.push(ul);
+        }
+      } else if (level < prevLevel) {
+        while (stack.length > level) stack.pop();
+      }
+      stack[stack.length - 1].appendChild(li);
+      prevLevel = level;
+    });
 
-  // On mobile, start collapsed
-  if (window.innerWidth <= 950) {
-    toc.classList.add('collapsed');
-    toggle.textContent = '+';
-    toggle.setAttribute('aria-label', '展开目录');
+    tocNav.appendChild(root);
+
+    // Scroll spy — highlight current heading
+    var links = tocNav.querySelectorAll('a');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var link = tocNav.querySelector('a[data-heading="' + entry.target.id + '"]');
+        if (!link) return;
+        if (entry.isIntersecting) {
+          links.forEach(function(l) { l.classList.remove('active'); });
+          link.classList.add('active');
+          // Scroll TOC to keep active item visible
+          link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+    headings.forEach(function(h) { observer.observe(h); });
+
+    // Collapse/expand toggle
+    var toc = document.getElementById('post-toc');
+    var toggle = document.getElementById('toc-toggle');
+    var tocNavEl = document.getElementById('toc-nav');
+
+    toggle.addEventListener('click', function() {
+      var isCollapsed = toc.classList.toggle('collapsed');
+      toggle.textContent = isCollapsed ? '+' : '−';
+      toggle.setAttribute('aria-label', isCollapsed ? '展开目录' : '折叠目录');
+    });
+
+    // On mobile, start collapsed
+    if (window.innerWidth <= 950) {
+      toc.classList.add('collapsed');
+      toggle.textContent = '+';
+      toggle.setAttribute('aria-label', '展开目录');
+    }
   }
+
+  // Reading progress bar
+  var progressBar = document.getElementById('reading-progress');
+  var backToTop = document.getElementById('back-to-top');
+
+  function updateProgress() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+
+    // Show/hide back to top button
+    if (scrollTop > 300) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateProgress);
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // Back to top click
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
 </script>

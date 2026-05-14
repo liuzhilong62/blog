@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<div class="reading-progress" id="reading-progress"></div>
 
 <div class="home">
   {%- if page.title -%}
@@ -31,3 +32,36 @@ layout: default
   {%- endif -%}
 
 </div>
+
+<button class="back-to-top" id="back-to-top" aria-label="返回顶部">↑</button>
+
+<script>
+(function() {
+  // Reading progress bar
+  var progressBar = document.getElementById('reading-progress');
+  var backToTop = document.getElementById('back-to-top');
+
+  function updateProgress() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+
+    // Show/hide back to top button
+    if (scrollTop > 300) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateProgress);
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  // Back to top click
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
