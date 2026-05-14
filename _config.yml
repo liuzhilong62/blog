@@ -23,15 +23,10 @@ minima:
     - { platform: github,  user_url: "https://github.com/liuzhilong62" }
     - { platform: rss,     user_url: "/blogs/feed.xml" }
 
-# 每页文章数
-paginate: 10
-paginate_path: "/page:num/"
-
 # 插件（GitHub Pages 支持）
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-paginate
   - jekyll-sitemap
 
 # Markdown

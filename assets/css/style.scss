@@ -350,6 +350,19 @@ body {
   margin: 0 auto;
 }
 
+.more-posts {
+  text-align: center;
+  margin-top: 20px;
+}
+.more-posts a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.more-posts a:hover {
+  text-decoration: underline;
+}
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 600px) {
   .site-header {
