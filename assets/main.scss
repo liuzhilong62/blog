@@ -268,7 +268,8 @@ body {
 }
 
 .post-content pre {
-  background: var(--bg-dark);
+  background-color: var(--bg-dark);
+  border: none;
   border-radius: var(--radius);
   padding: 16px 20px;
   overflow-x: auto;
@@ -276,9 +277,88 @@ body {
 
 .post-content pre code {
   background: none;
-  color: #e0e0e0;
+  background-color: transparent;
+  border: none;
+  color: #c8d6e5;
   padding: 0;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", "Monaco", monospace;
+  font-size: .88em;
+  line-height: 1.6;
 }
+
+/* ---------- 代码高亮（深色背景）---------- */
+.post-content .highlight {
+  background: var(--bg-dark);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+
+.post-content .highlight pre {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Rouge 语法高亮 — GitHub Dark 风格 */
+.post-content .highlight .c   { color: #6a737d; font-style: italic; }
+.post-content .highlight .cm  { color: #6a737d; font-style: italic; }
+.post-content .highlight .cp  { color: #6a737d; font-weight: bold; }
+.post-content .highlight .c1  { color: #6a737d; font-style: italic; }
+.post-content .highlight .cs  { color: #6a737d; font-weight: bold; font-style: italic; }
+.post-content .highlight .k   { color: #f97583; font-weight: bold; }
+.post-content .highlight .kd  { color: #f97583; font-weight: bold; }
+.post-content .highlight .kc  { color: #79b8ff; font-weight: bold; }
+.post-content .highlight .kt  { color: #f97583; }
+.post-content .highlight .kr  { color: #f97583; font-weight: bold; }
+.post-content .highlight .kp  { color: #f97583; }
+.post-content .highlight .s   { color: #9ecbff; }
+.post-content .highlight .sb  { color: #9ecbff; }
+.post-content .highlight .sc  { color: #9ecbff; }
+.post-content .highlight .sd  { color: #9ecbff; }
+.post-content .highlight .s2  { color: #9ecbff; }
+.post-content .highlight .se  { color: #79b8ff; }
+.post-content .highlight .sh  { color: #9ecbff; }
+.post-content .highlight .si  { color: #9ecbff; }
+.post-content .highlight .sx  { color: #9ecbff; }
+.post-content .highlight .sr  { color: #9ecbff; }
+.post-content .highlight .s1  { color: #9ecbff; }
+.post-content .highlight .ss  { color: #9ecbff; }
+.post-content .highlight .m   { color: #79b8ff; }
+.post-content .highlight .mf  { color: #79b8ff; }
+.post-content .highlight .mh  { color: #79b8ff; }
+.post-content .highlight .mi  { color: #79b8ff; }
+.post-content .highlight .mo  { color: #79b8ff; }
+.post-content .highlight .il  { color: #79b8ff; }
+.post-content .highlight .na  { color: #79b8ff; }
+.post-content .highlight .nb  { color: #79b8ff; }
+.post-content .highlight .nc  { color: #ffab70; font-weight: bold; }
+.post-content .highlight .no  { color: #79b8ff; }
+.post-content .highlight .nd  { color: #ffab70; }
+.post-content .highlight .ni  { color: #c8d6e5; }
+.post-content .highlight .ne  { color: #f97583; font-weight: bold; }
+.post-content .highlight .nf  { color: #79b8ff; }
+.post-content .highlight .nn  { color: #c8d6e5; }
+.post-content .highlight .nt  { color: #f97583; }
+.post-content .highlight .nv  { color: #79b8ff; }
+.post-content .highlight .o   { color: #f97583; }
+.post-content .highlight .ow  { color: #f97583; font-weight: bold; }
+.post-content .highlight .w   { color: #c8d6e5; }
+.post-content .highlight .err { color: #f97583; }
+.post-content .highlight .gd  { background-color: #490202; }
+.post-content .highlight .gi  { background-color: #0f5323; }
+.post-content .highlight .gh  { color: #79b8ff; }
+.post-content .highlight .gp  { color: #79b8ff; }
+.post-content .highlight .gs  { font-weight: bold; }
+.post-content .highlight .gu  { color: #ffab70; }
+.post-content .highlight .gt  { color: #f97583; }
+.post-content .highlight .bp  { color: #79b8ff; }
+.post-content .highlight .vc  { color: #79b8ff; }
+.post-content .highlight .vg  { color: #79b8ff; }
+.post-content .highlight .vi  { color: #79b8ff; }
+.post-content .highlight .ge  { font-style: italic; }
+.post-content .highlight .gr  { color: #f97583; }
 
 .post-content blockquote {
   border-left: 4px solid var(--accent);
