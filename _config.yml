@@ -1,5 +1,6 @@
 # Jekyll 配置 - liuzhilong62 的技术博客
 title: 最后的DBA
+tagline: PostgreSQL 技术博客
 description: >-
   PostgreSQL 数据库技术博客 — 内功修炼、案例分析、源码解析、论文解读
 author: liuzhilong62
@@ -17,8 +18,10 @@ theme: minima
 # Minima 配置
 minima:
   date_format: "%Y-%m-%d"
+  skin: classic
   social_links:
-    github: liuzhilong62
+    - { platform: github,  user_url: "https://github.com/liuzhilong62" }
+    - { platform: rss,     user_url: "/blogs/feed.xml" }
 
 # 每页文章数
 paginate: 10
