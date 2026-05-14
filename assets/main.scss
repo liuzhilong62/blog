@@ -217,6 +217,7 @@ body {
 .post {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .post-header {
@@ -239,7 +240,7 @@ body {
 /* 文章主体 + 侧边目录 布局 */
 .post-with-toc {
   display: grid;
-  grid-template-columns: minmax(0, 800px) 240px;
+  grid-template-columns: minmax(600px, 800px) 240px;
   gap: 48px;
   justify-content: center;
   align-items: start;
@@ -247,7 +248,7 @@ body {
 
 .post-content {
   font-size: 1.05rem;
-  min-width: 0;  /* prevent overflow */
+  min-width: 0;
 }
 
 /* ---------- 侧边目录 ---------- */
@@ -358,9 +359,10 @@ body {
 }
 
 /* ---------- 响应式：窄屏 TOC 变为顶部折叠块 ---------- */
-@media (max-width: 1100px) {
+@media (max-width: 950px) {
   .post {
     max-width: 800px;
+    padding: 0 16px;
   }
 
   .post-header {
