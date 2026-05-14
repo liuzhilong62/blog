@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "为啥要两本书一起写读后感？"
+title: "读书笔记——《When Breath Becomes Air》和《超越自卑》"
 date: 2024-08-12
 categories: [读书笔记]
 ---
