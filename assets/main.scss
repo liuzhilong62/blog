@@ -213,6 +213,11 @@ body {
   color: var(--accent);
 }
 
+/* ---------- 全局容器 ---------- */
+.wrapper {
+  max-width: 1160px;
+}
+
 /* ---------- 文章页 ---------- */
 .post {
   max-width: 1100px;
