@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "walsender阻止停库现象"
+title: "PG停库逻辑和walsender阻止停库问题分析"
 date: 2025-01-04
 categories: [PostgreSQL案例]
 ---
