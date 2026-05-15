@@ -1181,7 +1181,6 @@ body {
     font-size: .76rem;
   }
   .post-excerpt {
-    -webkit-line-clamp: 3;
     font-size: .85rem;
   }
   .post-link-wrapper .post-title {
@@ -1387,10 +1386,6 @@ body {
   font-size: .9rem;
   color: var(--text-muted);
   line-height: 1.6;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
   margin-top: 2px;
 }
 

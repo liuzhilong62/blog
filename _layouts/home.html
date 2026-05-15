@@ -22,7 +22,7 @@ layout: default
           <span class="post-date">{{ post.date | date: date_format }}</span>
           <span class="post-title">{{ post.title | escape }}</span>
           {%- if post.description -%}
-            <span class="post-excerpt">{{ post.description | strip_html | truncate: 80 }}</span>
+            <span class="post-excerpt">{{ post.description | strip_html }}</span>
           {%- elsif post.excerpt -%}
             <span class="post-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</span>
           {%- endif -%}
