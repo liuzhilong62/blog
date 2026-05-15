@@ -217,6 +217,10 @@
   border-left-color: var(--accent);
   color: var(--text-blockquote);
 }
+/* 深色模式：代码块 */
+[data-theme="dark"] .post-content pre code {
+  color: #c8d6e5;
+}
 [data-theme="dark"] .post-content pre {
   background-color: #0d1117 !important;
 }

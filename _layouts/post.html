@@ -191,29 +191,33 @@ layout: default
     }
   }
 
-  // ===== 代码块复制按钮 + 语言标识 =====
-  document.querySelectorAll('.post-content .highlight').forEach(function(block) {
-    // 提取语言
+  // ===== 代码块复制按钮 + 语言标识（统一处理，避免重复包裹） =====
+  document.querySelectorAll('.post-content pre').forEach(function(pre) {
+    // 跳过已经包裹过的
+    if (pre.closest('.code-block-wrapper')) return;
+
+    // 提取语言：优先从 code 的 class，然后从父级 .highlight 的 class
     var langClass = '';
-    block.classList.forEach(function(c) {
-      if (c.startsWith('language-') || c.startsWith('highlight-')) {
-        langClass = c.replace('highlight-', '').replace('language-', '');
-      }
-    });
-    // 尝试从 code 的 class 获取
+    var codeEl = pre.querySelector('code');
+    if (codeEl) {
+      codeEl.classList.forEach(function(c) {
+        if (c.startsWith('language-')) langClass = c.replace('language-', '');
+      });
+    }
     if (!langClass) {
-      var codeEl = block.querySelector('code');
-      if (codeEl) {
-        codeEl.classList.forEach(function(c) {
-          if (c.startsWith('language-')) langClass = c.replace('language-', '');
-        });
-      }
+      // 检查 pre 自身或父级 .highlight 的 class
+      var highlightParent = pre.closest('.highlight');
+      var classSource = highlightParent || pre;
+      classSource.classList.forEach(function(c) {
+        if (c.startsWith('highlight-') && c !== 'highlight') langClass = c.replace('highlight-', '');
+        if (c.startsWith('language-')) langClass = c.replace('language-', '');
+      });
     }
 
     var wrapper = document.createElement('div');
     wrapper.className = 'code-block-wrapper';
 
-    // 顶部栏
+    // 顶部栏：语言标识 + 复制按钮
     var header = document.createElement('div');
     header.className = 'code-block-header';
     if (langClass) {
@@ -228,47 +232,15 @@ layout: default
     copyBtn.setAttribute('aria-label', '复制代码');
     header.appendChild(copyBtn);
 
-    // 将 block 包裹
-    block.parentNode.insertBefore(wrapper, block);
+    // 包裹 pre（如果 pre 在 .highlight 里，包裹 .highlight 的父级）
+    var target = pre.closest('.highlight') || pre;
+    target.parentNode.insertBefore(wrapper, target);
     wrapper.appendChild(header);
-    wrapper.appendChild(block);
+    wrapper.appendChild(target);
 
     copyBtn.addEventListener('click', function() {
-      var code = block.querySelector('code');
-      var text = code ? code.textContent : block.textContent;
+      var text = codeEl ? codeEl.textContent : pre.textContent;
       navigator.clipboard.writeText(text).then(function() {
-        copyBtn.textContent = '已复制';
-        copyBtn.classList.add('copied');
-        setTimeout(function() {
-          copyBtn.textContent = '复制';
-          copyBtn.classList.remove('copied');
-        }, 2000);
-      });
-    });
-  });
-
-  // 也要处理没有语言标记的 pre > code
-  document.querySelectorAll('.post-content pre:not(.highlight) > code').forEach(function(code) {
-    var pre = code.parentElement;
-    if (pre.parentElement.classList.contains('code-block-wrapper')) return;
-
-    var wrapper = document.createElement('div');
-    wrapper.className = 'code-block-wrapper';
-
-    var header = document.createElement('div');
-    header.className = 'code-block-header';
-    var copyBtn = document.createElement('button');
-    copyBtn.className = 'code-copy-btn';
-    copyBtn.textContent = '复制';
-    copyBtn.setAttribute('aria-label', '复制代码');
-    header.appendChild(copyBtn);
-
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(header);
-    wrapper.appendChild(pre);
-
-    copyBtn.addEventListener('click', function() {
-      navigator.clipboard.writeText(code.textContent).then(function() {
         copyBtn.textContent = '已复制';
         copyBtn.classList.add('copied');
         setTimeout(function() {
