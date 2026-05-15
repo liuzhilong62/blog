@@ -3,6 +3,7 @@ layout: post
 title: "案例-pg中的谓词越界和prepare statement问题"
 date: 2024-08-12
 categories: [PostgreSQL案例]
+description: "分析执行计划选择错误索引的根因：月末统计信息过旧导致谓词越界，配合prepare statement缓存使analyze后执行计划仍不更新"
 ---
 
 # 现象

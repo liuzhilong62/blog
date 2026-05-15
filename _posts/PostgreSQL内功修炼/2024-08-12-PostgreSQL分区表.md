@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL分区表"
 date: 2024-08-12
 categories: [PostgreSQL内功修炼]
+description: "全面介绍PostgreSQL分区表的声明式分区实现、分区维护策略及查询优化技巧。"
 ---
 
 # 什么是分区表

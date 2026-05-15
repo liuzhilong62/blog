@@ -3,6 +3,7 @@ layout: post
 title: "案例-insert value偶发慢分析"
 date: 2024-08-12
 categories: [PostgreSQL案例]
+description: "分析insert values偶发变慢问题，通过等待事件定位到WALWrite锁竞争，根源是大量并发写入时WAL刷写成为瓶颈"
 ---
 
 

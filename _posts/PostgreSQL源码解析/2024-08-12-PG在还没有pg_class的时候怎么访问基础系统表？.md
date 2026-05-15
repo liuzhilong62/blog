@@ -3,6 +3,7 @@ layout: post
 title: "PG在还没有pg_class的时候怎么访问基础系统表？"
 date: 2024-08-12
 categories: [PostgreSQL源码解析]
+description: "分析PostgreSQL在bootstrap模式下通过BKI文件初始化数据字典的机制，解答没有pg_class时如何访问基础系统表"
 ---
 
 在没有pg_class的时候，数据库怎么访问系统表？这个问题可以分成两个阶段来看：

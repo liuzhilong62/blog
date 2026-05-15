@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL逻辑复制"
 date: 2024-08-13
 categories: [PostgreSQL内功修炼]
+description: "详解PostgreSQL逻辑复制机制，涵盖逻辑解析、复制槽、output plugin及发布订阅架构。"
 ---
 
 

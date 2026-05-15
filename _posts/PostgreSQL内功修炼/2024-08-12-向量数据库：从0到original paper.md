@@ -3,6 +3,7 @@ layout: post
 title: "向量数据库相关概念"
 date: 2024-08-12
 categories: [PostgreSQL内功修炼]
+description: "从零讲解向量数据库核心概念，涵盖embedding嵌入、RAG检索增强生成及LLM基础知识。"
 ---
 
 

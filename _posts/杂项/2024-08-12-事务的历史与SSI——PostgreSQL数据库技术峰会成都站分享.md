@@ -3,6 +3,7 @@ layout: post
 title: "事务的历史与SSI——PostgreSQL数据库技术峰会成都站分享"
 date: 2024-08-12
 categories: [杂项]
+description: "PostgreSQL技术峰会成都站分享，从事务历史到ANSI SQL-92标准的缺陷，再到PostgreSQL中SSI可串行化快照隔离的实现"
 ---
 
 # 前言

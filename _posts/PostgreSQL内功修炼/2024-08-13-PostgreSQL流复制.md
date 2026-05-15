@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL流复制"
 date: 2024-08-13
 categories: [PostgreSQL内功修炼]
+description: "深入解析PostgreSQL流复制原理与进程架构，包括同步异步模式及failover故障切换机制。"
 ---
 
 

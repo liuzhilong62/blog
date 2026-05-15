@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL FDW浅析"
 date: 2024-08-12
 categories: [PostgreSQL内功修炼]
+description: "深入解析PostgreSQL FDW外部数据包装器的原理与使用，涵盖SQL/MED标准、四种FDW对象及常见FDW插件。"
 ---
 
 # FDW的基本概念

@@ -3,6 +3,7 @@ layout: post
 title: "ORDER BY limit 10比ORDER BY limit 100更慢"
 date: 2024-08-12
 categories: [PostgreSQL案例]
+description: "分析ORDER BY limit值较小时反而更慢的异常现象，根因是优化器对反向索引扫描的代价预估偏低导致选择了错误的索引"
 ---
 
 # 问题分析

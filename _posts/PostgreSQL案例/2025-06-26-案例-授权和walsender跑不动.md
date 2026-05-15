@@ -3,6 +3,7 @@ layout: post
 title: "案例-授权和walsender跑不动"
 date: 2025-06-26
 categories: [PostgreSQL案例]
+description: "分析GRANT授权操作导致walsender卡死的问题：大量授权产生海量pg_class变更记录，逻辑解码处理invalidation消息时因pathman插件哈希表遍历消耗过高CPU"
 ---
 
 

@@ -3,6 +3,7 @@ layout: post
 title: "ogg搭建pg-oracle同步——实操步骤"
 date: 2024-08-13
 categories: [杂项]
+description: "Oracle GoldenGate搭建PostgreSQL到Oracle数据同步的完整实操步骤，涵盖环境配置、OGG安装与同步链路创建"
 ---
 
 ogg软件版本:(19.1.0.0.4) 

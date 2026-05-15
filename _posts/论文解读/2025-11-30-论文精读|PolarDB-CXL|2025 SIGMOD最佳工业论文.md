@@ -3,6 +3,7 @@ layout: post
 title: "CXL和PolarDB-CXL"
 date: 2025-11-30
 categories: [论文解读]
+description: "SIGMOD 2025最佳工业论文PolarDB-CXL精读：将CXL分离式内存引入PolarDB-MP，对比RDMA架构展示CXL在延迟和内存融合上的优势"
 ---
 
 论文：Unlocking the Potential of CXL for Disaggregated Memory in Cloud-Native Databases

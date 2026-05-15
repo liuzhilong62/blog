@@ -3,6 +3,7 @@ layout: post
 title: "简评ORACLE,MYSQL,PG的逻辑复制"
 date: 2025-11-30
 categories: [PostgreSQL内功修炼]
+description: "横向对比Oracle、MySQL与PostgreSQL逻辑复制方案的架构设计与优劣，深度评析三大数据库复制理念。"
 ---
 
 ## postgresql逻辑复制

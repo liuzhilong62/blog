@@ -3,6 +3,7 @@ layout: post
 title: "读书笔记——《When Breath Becomes Air》和《超越自卑》"
 date: 2024-08-12
 categories: [读书笔记]
+description: "《当呼吸化为空气》与《超越自卑》读书笔记：一位外科医生面对癌症晚期的生命思考，以及阿德勒个体心理学的核心观点"
 ---
 
 # 为啥要两本书一起写读后感？

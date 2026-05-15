@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL事务浅析"
 date: 2024-08-12
 categories: [PostgreSQL内功修炼]
+description: "深入剖析PostgreSQL事务机制与MVCC实现原理，包括隔离级别、行级锁及无undo的多版本并发控制。"
 ---
 
 **PG的事务**

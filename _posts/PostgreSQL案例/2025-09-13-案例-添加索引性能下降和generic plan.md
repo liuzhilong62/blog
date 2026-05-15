@@ -3,6 +3,7 @@ layout: post
 title: "案例-添加索引性能下降和generic plan"
 date: 2025-09-13
 categories: [PostgreSQL案例]
+description: "分析添加索引后性能反而下降的案例：新建索引导致优化器选择不同执行路径，配合generic plan缓存使analyze无法更新已缓存的错误计划"
 ---
 
 # 问题现象

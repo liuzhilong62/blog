@@ -3,6 +3,7 @@ layout: post
 title: "较少的分区也报错too many range table entries"
 date: 2024-08-12
 categories: [PostgreSQL案例]
+description: "分析UPDATE报错too many range table entries而SELECT正常的原因，通过源码定位到UPDATE触发所有分区参与plan导致range table条目超出上限"
 ---
 
 # 问题现象

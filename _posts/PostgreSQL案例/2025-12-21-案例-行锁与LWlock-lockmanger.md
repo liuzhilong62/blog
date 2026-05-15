@@ -3,6 +3,7 @@ layout: post
 title: "案例-行锁与LWlock-lockmanger"
 date: 2025-12-21
 categories: [PostgreSQL案例]
+description: "分析同一行高并发更新导致大量行锁和LWLock LockManager等待的问题，通过压测验证行锁绕过fastpath机制是LWLock竞争加剧的根因"
 ---
 
 # 现象

@@ -3,6 +3,7 @@ layout: post
 title: "pg报错attempted to delete invisible tuple"
 date: 2024-08-12
 categories: [PostgreSQL案例]
+description: "分析DELETE报错attempted to delete invisible tuple而SELECT正常的原因，通过源码定位到VM文件损坏导致的可见性判断异常"
 ---
 
 

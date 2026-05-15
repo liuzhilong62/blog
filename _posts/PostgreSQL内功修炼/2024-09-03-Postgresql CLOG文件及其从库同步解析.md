@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL CLOG文件及其从库同步解析"
 date: 2024-09-03
 categories: [PostgreSQL内功修炼]
+description: "深入剖析PostgreSQL CLOG文件结构与事务状态存储原理，包括事务ID定位与从库同步机制。"
 ---
 
 

@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL内存浅析"
 date: 2024-08-12
 categories: [PostgreSQL内功修炼]
+description: "详解PostgreSQL共享内存体系结构，涵盖shared_buffer、wal buffer、CLOG buffer及Linux共享内存实现机制。"
 ---
 
 

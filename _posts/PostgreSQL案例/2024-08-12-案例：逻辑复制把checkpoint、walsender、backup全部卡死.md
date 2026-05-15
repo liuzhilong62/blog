@@ -3,6 +3,7 @@ layout: post
 title: "案例：逻辑复制把checkpoint、walsender、backup全部卡死"
 date: 2024-08-12
 categories: [PostgreSQL案例]
+description: "分析逻辑复制walsender因内存不足导致replication_slot_io等待，连锁阻塞checkpoint和备份进程的故障排查过程"
 ---
 
 # 问题现象

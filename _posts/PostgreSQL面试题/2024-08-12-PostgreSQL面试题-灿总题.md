@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL面试题-灿总题"
 date: 2024-08-12
 categories: [PostgreSQL面试题]
+description: "PostgreSQL面试题集锦，涵盖MVCC实现机制与Oracle差异、表膨胀原理与处理、vacuum机制及各类PG核心知识点"
 ---
 
 

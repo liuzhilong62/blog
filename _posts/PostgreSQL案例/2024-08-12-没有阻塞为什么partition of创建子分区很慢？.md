@@ -3,6 +3,7 @@ layout: post
 title: "没有阻塞为什么partition of创建子分区很慢？"
 date: 2024-08-12
 categories: [PostgreSQL案例]
+description: "分析partition of创建子分区耗时35分钟的根因：default分区有50GB数据，新增分区时需全量校验default分区数据是否与新分区范围冲突"
 ---
 
 

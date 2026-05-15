@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL DDL变更的坑和巧妙方案"
 date: 2025-07-19
 categories: [PostgreSQL内功修炼]
+description: "总结PostgreSQL DDL变更中的常见陷阱与巧妙解决方案，一图速查避坑指南。"
 ---
 
 ![DDL变更.png](https://oss-emcsprod-public.modb.pro/image/editor/20250719-1946416131493867520_4587.png)

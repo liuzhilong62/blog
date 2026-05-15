@@ -3,6 +3,7 @@ layout: post
 title: "案例-从distinct不准确到DISTINCT的计算原理"
 date: 2025-10-19
 categories: [PostgreSQL案例]
+description: "分析统计信息n_distinct严重不准的原因，深入源码解析Haas-Stokes DISTINCT预估算法及其在样本量远小于总行数时的估算偏差问题"
 ---
 
 # 问题现象

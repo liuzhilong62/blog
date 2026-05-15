@@ -3,6 +3,7 @@ layout: post
 title: "论文精读|PolarDB-MP|2024 SIGMOD最佳工业论文"
 date: 2025-11-30
 categories: [论文解读]
+description: "SIGMOD 2024最佳工业论文PolarDB-MP精读：基于分离式共享内存与RDMA的多主云原生数据库，解决单主写入瓶颈"
 ---
 
 

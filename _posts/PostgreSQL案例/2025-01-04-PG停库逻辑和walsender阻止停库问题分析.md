@@ -3,6 +3,7 @@ layout: post
 title: "PG停库逻辑和walsender阻止停库问题分析"
 date: 2025-01-04
 categories: [PostgreSQL案例]
+description: "深入源码分析PG停库流程与信号机制，排查walsender阻止fast shutdown的根因：逻辑复制walsender在等待消费端反馈时无法响应SIGTERM信号"
 ---
 
 # walsender阻止停库现象

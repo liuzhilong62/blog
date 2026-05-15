@@ -3,6 +3,7 @@ layout: post
 title: "pg truncate浅析"
 date: 2024-08-12
 categories: [PostgreSQL源码解析]
+description: "全面解析PostgreSQL TRUNCATE命令的各个选项，包括ONLY继承表行为、RESTART/CONTINUE IDENTITY序列重置与CASCADE级联"
 ---
 
 

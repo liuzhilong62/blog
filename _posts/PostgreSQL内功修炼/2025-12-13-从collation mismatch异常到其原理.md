@@ -3,6 +3,7 @@ layout: post
 title: "从collation mismatch异常到其原理"
 date: 2025-12-13
 categories: [PostgreSQL内功修炼]
+description: "从collation mismatch异常入手，深入解析PostgreSQL排序规则版本管理与操作系统libc依赖原理。"
 ---
 
 # 问题现象

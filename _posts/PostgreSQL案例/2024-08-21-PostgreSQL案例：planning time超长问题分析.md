@@ -3,6 +3,7 @@ layout: post
 title: "PostgreSQL案例：planning time超长问题分析"
 date: 2024-08-21
 categories: [PostgreSQL案例]
+description: "分析planning time超长（近1秒）和planning shared hit超100万的问题，根因是pg_statistic表膨胀导致CatCacheMiss时缓存了大量死元组数据"
 ---
 
 # 问题分析概述
