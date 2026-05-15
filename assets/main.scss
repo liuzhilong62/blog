@@ -1934,6 +1934,19 @@ html {
   background: rgba(255,255,255,.08);
 }
 
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  color: rgba(255,255,255,.5);
+  transition: color .15s;
+  vertical-align: middle;
+}
+.social-link:hover {
+  color: rgba(255,255,255,.85);
+}
+
 /* 深色模式下图标切换 */
 .theme-icon-moon { display: none; }
 .theme-icon-sun  { display: block; }

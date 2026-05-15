@@ -72,11 +72,6 @@ list_title: 最新文章
     <div class="platform-name">GitHub</div>
     <div class="platform-desc">代码仓库</div>
   </a>
-  <a class="platform-card twitter" href="https://x.com/liuzhilong62" target="_blank">
-    <span class="platform-icon">𝕏</span>
-    <div class="platform-name">X</div>
-    <div class="platform-desc">社交媒体</div>
-  </a>
 </div>
 
 ---
