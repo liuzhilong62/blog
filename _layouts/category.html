@@ -17,17 +17,13 @@ layout: default
     <li>
       <a class="post-link-wrapper" href="{{ post.url | relative_url }}">
         <div class="post-meta-row">
-          {%- if post.categories -%}
-            {%- assign first_cat = post.categories | first -%}
-            <span class="post-cat-tag">{{ first_cat }}</span>
-          {%- endif -%}
           <span class="post-date">{{ post.date | date: date_format }}</span>
         </div>
         <span class="post-title">{{ post.title | escape }}</span>
         {%- if post.description -%}
-          <span class="post-excerpt">{{ post.description | strip_html | truncate: 80 }}</span>
+          <span class="post-excerpt">{{ post.description | strip_html | truncate: 60 }}</span>
         {%- elsif post.excerpt -%}
-          <span class="post-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</span>
+          <span class="post-excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span>
         {%- endif -%}
       </a>
     </li>
@@ -46,7 +42,6 @@ layout: default
 
 <script>
 (function() {
-  // Reading progress bar
   var progressBar = document.getElementById('reading-progress');
   var backToTop = document.getElementById('back-to-top');
 
@@ -56,7 +51,6 @@ layout: default
     var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = progress + '%';
 
-    // Show/hide back to top button
     if (scrollTop > 300) {
       backToTop.classList.add('visible');
     } else {
@@ -68,9 +62,10 @@ layout: default
   window.addEventListener('resize', updateProgress);
   updateProgress();
 
-  // Back to top click
   backToTop.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // 深色模式和搜索浮层的 JS 已移至 _includes/header.html（全站共用）
 })();
 </script>

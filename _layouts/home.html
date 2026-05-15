@@ -15,9 +15,9 @@ layout: default
 
   {%- if posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "最新文章" }}</h2>
-    <ul class="post-list">
-      {%- for post in posts limit:20 -%}
-      <li>
+    <ul class="post-list" id="post-list">
+      {%- for post in posts -%}
+      <li class="post-list-item" {% if forloop.index > 10 %}style="display:none;"{% endif %}>
         <a class="post-link-wrapper" href="{{ post.url | relative_url }}">
           <div class="post-meta-row">
             {%- if post.categories -%}
@@ -37,8 +37,11 @@ layout: default
       {%- endfor -%}
     </ul>
 
-    {%- if posts.size > 20 -%}
-      <p class="more-posts"><a href="{{ '/archives' | relative_url }}">更多文章 →</a></p>
+    {%- if posts.size > 10 -%}
+    <div class="load-more-wrapper" id="load-more-wrapper">
+      <button class="load-more-btn" id="load-more-btn">加载更多文章</button>
+      <span class="post-count-hint">已显示 <span id="shown-count">10</span> / {{ posts.size }} 篇</span>
+    </div>
     {%- endif -%}
   {%- endif -%}
 
@@ -58,7 +61,6 @@ layout: default
     var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = progress + '%';
 
-    // Show/hide back to top button
     if (scrollTop > 300) {
       backToTop.classList.add('visible');
     } else {
@@ -70,9 +72,37 @@ layout: default
   window.addEventListener('resize', updateProgress);
   updateProgress();
 
-  // Back to top click
   backToTop.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // 加载更多
+  var loadMoreBtn = document.getElementById('load-more-btn');
+  var shownCount = document.getElementById('shown-count');
+  var allItems = document.querySelectorAll('.post-list-item');
+  var perPage = 10;
+  var currentShown = perPage;
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function() {
+      var nextBatch = Math.min(currentShown + perPage, allItems.length);
+      for (var i = currentShown; i < nextBatch; i++) {
+        allItems[i].style.display = '';
+        allItems[i].style.opacity = '0';
+        allItems[i].style.transition = 'opacity 0.3s ease';
+        setTimeout(function(el) {
+          el.style.opacity = '1';
+        }, 50, allItems[i]);
+      }
+      currentShown = nextBatch;
+      if (shownCount) shownCount.textContent = currentShown;
+
+      if (currentShown >= allItems.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    });
+  }
+
+  // 深色模式和搜索浮层的 JS 已移至 _includes/header.html（全站共用）
 })();
 </script>
