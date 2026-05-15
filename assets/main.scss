@@ -129,6 +129,9 @@
   border-color: var(--border);
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
+[data-theme="dark"] .avatar {
+  border-color: #30363d;
+}
 [data-theme="dark"] .post-link-wrapper:hover {
   border-color: var(--border);
   box-shadow: 0 4px 16px rgba(0,0,0,0.4);
@@ -1363,7 +1366,27 @@ body {
   margin-bottom: 6px;
 }
 
-/* 摘要文字 */
+.avatar {
+  display: block;
+  margin: 0 auto 16px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  border: 3px solid var(--bg-card);
+}
+
+.pg-logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  margin-top: -2px;
+  width: 26px;
+  height: 26px;
+}
+
+/* 欢迎文字 */
 .post-excerpt {
   display: block;
   margin-top: 4px;

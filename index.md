@@ -4,6 +4,8 @@ title: 最后的DBA
 list_title: 最新文章
 ---
 
+<img src="{{ '/assets/avatar.jpg' | relative_url }}" alt="liuzhilong62" class="avatar" width="120" height="120" />
+
 <p class="welcome-text">PostgreSQL 数据库技术博客 — 内功修炼、案例分析、源码解析、论文解读。</p>
 <p class="wechat-badge">📡 微信公众号：最后的DBA</p>
 
