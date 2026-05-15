@@ -165,12 +165,6 @@
   border-color: #2d5a2d;
 }
 
-/* 深色模式：平台卡片 */
-[data-theme="dark"] .platform-card {
-  background: linear-gradient(135deg, #161b22, #1c2128);
-  border-color: var(--border);
-}
-
 /* 深色模式：文章页 */
 [data-theme="dark"] .post-header {
   border-bottom-color: var(--border);
@@ -527,91 +521,80 @@ body {
   margin-bottom: 12px;
 }
 
-/* ---------- 平台卡片样式 ---------- */
+/* ---------- 平台卡片 ---------- */
 .platform-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 16px 0 32px;
+  gap: 14px;
+  margin: 20px 0 32px;
 }
 
 .platform-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 24px 16px;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  gap: 10px;
+  padding: 22px 12px;
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 10px;
   text-decoration: none !important;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-}
-
-.platform-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.platform-card:hover::before {
-  transform: scaleX(1);
+  transition: all .2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .platform-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  border-color: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: var(--accent);
 }
 
 .platform-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 4px;
 }
 
 .platform-card.csdn .platform-icon {
-  background: linear-gradient(135deg, #fc5531, #ff7b5a);
+  background: #fc5531;
 }
 
 .platform-card.modb .platform-icon {
-  background: linear-gradient(135deg, #1890ff, #40a9ff);
+  background: #1890ff;
 }
 
 .platform-card.github .platform-icon {
-  background: linear-gradient(135deg, #24292e, #586069);
-}
-
-.platform-card.twitter .platform-icon {
-  background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+  background: #24292e;
 }
 
 .platform-name {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
   color: var(--bg-dark);
 }
 
 .platform-desc {
-  font-size: 0.85rem;
+  font-size: .82rem;
   color: var(--text-muted);
+  margin-top: -4px;
+}
+
+/* 暗色模式平台卡片 */
+[data-theme="dark"] .platform-card {
+  background: #161b22;
+  border-color: #30363d;
+}
+[data-theme="dark"] .platform-name {
+  color: #c9d1d9;
+}
+[data-theme="dark"] .platform-desc {
+  color: #8b949e;
 }
 
 /* ---------- 关于页 ---------- */
