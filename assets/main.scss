@@ -1376,10 +1376,15 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(255,255,255,.3);
-  flex-shrink: 0;
-  margin-right: 10px;
+  margin-right: 12px;
   float: left;
-  margin-top: 2px;
+  margin-top: -2px;
+}
+
+.site-header .wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* 欢迎文字 */
