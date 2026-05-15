@@ -136,6 +136,88 @@
         }
       });
     });
+
+    // 搜索逻辑
+    var searchData = null;
+    var searchResultsEl = document.getElementById('search-results');
+    var searchHint = searchResultsEl ? searchResultsEl.querySelector('.search-hint') : null;
+
+    function loadSearchData(callback) {
+      if (searchData) { callback(); return; }
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '{{ "/search.json" | relative_url }}', true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          try { searchData = JSON.parse(xhr.responseText); } catch(e) { searchData = []; }
+        } else { searchData = []; }
+        callback();
+      };
+      xhr.onerror = function() { searchData = []; callback(); };
+      xhr.send();
+    }
+
+    function doSearch(query) {
+      if (!searchResultsEl) return;
+      var q = query.trim().toLowerCase();
+      if (!q) {
+        searchResultsEl.innerHTML = '<div class="search-hint">输入关键词开始搜索</div>';
+        return;
+      }
+      loadSearchData(function() {
+        var results = [];
+        if (searchData && searchData.length) {
+          for (var i = 0; i < searchData.length; i++) {
+            var post = searchData[i];
+            var title = (post.title || '').toLowerCase();
+            var desc = (post.description || '').toLowerCase();
+            var cats = (post.categories || []).join(' ').toLowerCase();
+            if (title.indexOf(q) !== -1 || desc.indexOf(q) !== -1 || cats.indexOf(q) !== -1) {
+              results.push(post);
+            }
+          }
+        }
+        if (results.length === 0) {
+          searchResultsEl.innerHTML = '<div class="search-hint">没有找到相关文章</div>';
+          return;
+        }
+        var html = '';
+        for (var j = 0; j < results.length; j++) {
+          var r = results[j];
+          var catsHtml = '';
+          if (r.categories && r.categories.length) {
+            catsHtml = '<span class="search-result-cat">' + r.categories.join(' · ') + '</span>';
+          }
+          html += '<a class="search-result-item" href="' + (r.url || '') + '">' +
+            '<span class="search-result-title">' + (r.title || '') + '</span>' +
+            catsHtml +
+            '<span class="search-result-excerpt">' + (r.description || '') + '</span>' +
+            '</a>';
+        }
+        searchResultsEl.innerHTML = html;
+      });
+    }
+
+    if (searchInput && searchResultsEl) {
+      var searchTimer;
+      searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimer);
+        var val = this.value;
+        searchTimer = setTimeout(function() { doSearch(val); }, 200);
+      });
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          var firstResult = searchResultsEl.querySelector('.search-result-item');
+          if (firstResult) firstResult.click();
+        }
+      });
+      // 打开搜索时清空旧结果
+      if (searchBtn) {
+        searchBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          searchResultsEl.innerHTML = '<div class="search-hint">输入关键词开始搜索</div>';
+        });
+      }
+    }
   })();
   </script>
 </header>

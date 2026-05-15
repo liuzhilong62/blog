@@ -345,6 +345,9 @@
 [data-theme="dark"] .search-result-excerpt {
   color: var(--text-muted);
 }
+[data-theme="dark"] .search-result-cat {
+  color: var(--accent-light);
+}
 
 /* 深色模式：分类页 */
 [data-theme="dark"] .category-count {
@@ -1860,6 +1863,10 @@ html {
   vertical-align: middle;
   margin-left: 4px;
 }
+.theme-toggle svg,
+.search-toggle svg {
+  pointer-events: none;
+}
 .theme-toggle:hover,
 .search-toggle:hover {
   color: #fff;
@@ -2018,6 +2025,12 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.search-result-cat {
+  display: block;
+  font-size: .72rem;
+  color: var(--accent);
+  margin-bottom: 1px;
 }
 
 /* ---------- 移动端下拉导航适配 ---------- */
