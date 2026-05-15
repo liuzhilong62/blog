@@ -129,7 +129,7 @@
   border-color: var(--border);
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
-[data-theme="dark"] .avatar {
+[data-theme="dark"] .header-avatar {
   border-color: #30363d;
 }
 [data-theme="dark"] .post-link-wrapper:hover {
@@ -1366,15 +1366,21 @@ body {
   margin-bottom: 6px;
 }
 
-.avatar {
+.header-avatar {
   display: block;
-  margin: 0 auto 16px;
-  width: 110px;
-  height: 110px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  border: 3px solid var(--bg-card);
+  border: 2px solid rgba(255,255,255,.3);
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+
+/* 让 wrapper 内的元素横向排列 */
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .pg-logo {
